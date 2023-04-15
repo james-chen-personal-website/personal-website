@@ -1,41 +1,61 @@
 html {
   font-family: sans-serif;
   font-size: 16px;
+  text-align: center;
+  text-shadow: 1px 1px #000000;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+head {
 }
 
 body {
-  background-image: linear-gradient(
-    rgb(0, 2, 25),
-    rgb(3, 11, 159),
-    rgb(255, 89, 0),
-    rgb(255, 242, 4)
-  );
-  max-width: 100%;
-  margin: 0 auto;
+  background-image: url(images/mountain.png),
+    linear-gradient(
+      rgb(0, 2, 25),
+      rgb(3, 11, 159),
+      rgb(255, 89, 0),
+      rgb(255, 242, 4)
+    );
+  background-size: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
-header {
+header,
+footer {
   font-size: 2rem;
   position: fixed;
   left: 0;
 }
 
 main {
-  min-height: 100vh;
-  padding: 64px 24px 96px;
+  min-height: 65.625rem;
+  min-width: none;
+  padding: 2rem;
   color: #ffffff;
+  text-shadow: 1px 1px #000000;
   font-family: "Open Sans", sans-serif;
 }
 
 .links {
-  float: left;
+  float: center;
   background-color: rgba(0, 0, 0, 0.8);
   overflow: hidden;
 }
 
 .links a {
-  float: left;
+  float: center;
   color: #ffffff;
+  text-shadow: 1px 1px #000000;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -45,19 +65,14 @@ main {
 .links a:hover {
   background-color: #010016;
   color: #ffffff;
+  text-shadow: 1px 1px #000000;
   font-size: 2.5rm;
 }
 
 .links a.active {
-  background-color: #010016;
-  color: rgb(254, 254, 254);
-}
-
-footer {
-  box-sizing: border-box;
-  font-family: sans-serif;
-  text-align: center;
-  color: rgb(254, 254, 254);
+  background-color: #ffffffb1;
+  text-shadow: 1px 1px #000000;
+  color: #000000;
 }
 
 .f-links {
@@ -87,11 +102,12 @@ footer {
 }
 
 input[type="text"],
+[type="email"],
 select,
 textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ffffff;
+  border: 1px solid #000000;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -99,7 +115,8 @@ textarea {
   resize: vertical;
 }
 
-input[type="button"] {
+input[type="submit"],
+[type="reset"] {
   background-color: #00000085;
   color: white;
   padding: 12px 20px;
@@ -108,31 +125,105 @@ input[type="button"] {
   cursor: pointer;
 }
 
-.container {
-  border-radius: 5px;
-  background-color: #00000075;
-  padding: 20px;
-}
-
-.grid-container {
+.h3-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100px 100px;
-  grid-gap: 50px;
-  grid-auto-flow: column;
-  border-radius: 5px;
-  background-color: #00000075;
-  padding: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas: "mind body spirit";
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  justify-items: stretch;
+  align-items: stretch;
 }
 
-.grid-item1 {
-  grid-column-start: 1;
+.mind {
+  grid-area: mind;
+  background-color: hsla(205, 100%, 50%, 0.5);
 }
 
-.grid-item2 {
-  grid-column-start: 2;
+.body {
+  grid-area: body;
+  background-color: hwb(0 0% 0% / 0.5);
+}
+.spirit {
+  grid-area: spirit;
+  background-color: hwb(120 0% 0% / 0.5);
 }
 
-.grid-item3 {
-  grid-column-start: 3;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    "write swim spice"
+    "read weight meditate"
+    "game massage travel";
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  justify-items: stretch;
+  align-items: stretch;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px 20px;
+    grid-template-areas:
+      "write"
+      "read"
+      "game"
+      "swim"
+      "weight"
+      "massage"
+      "spice"
+      "meditate"
+      "travel";
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    justify-items: stretch;
+    align-items: stretch;
+    white-space: nowrap;
+  }
+}
+
+.write {
+  grid-area: write;
+  background-color: hsla(205, 100%, 50%, 0.5);
+}
+
+.read {
+  grid-area: read;
+  background-color: hsla(205, 100%, 50%, 0.5);
+}
+.game {
+  grid-area: game;
+  background-color: hsla(205, 100%, 50%, 0.5);
+}
+.swim {
+  grid-area: swim;
+  background-color: hwb(0 0% 0% / 0.5);
+}
+.weight {
+  grid-area: weight;
+  background-color: hwb(0 0% 0% / 0.5);
+}
+.massage {
+  grid-area: massage;
+  background-color: hwb(0 0% 0% / 0.5);
+}
+.spice {
+  grid-area: spice;
+  background-color: hwb(120 0% 0% / 0.5);
+}
+.meditate {
+  grid-area: meditate;
+  background-color: hwb(120 0% 0% / 0.5);
+}
+.travel {
+  grid-area: travel;
+  background-color: hwb(120 0% 0% / 0.5);
 }
